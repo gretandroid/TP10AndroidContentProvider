@@ -13,6 +13,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DatabaseSQLiteHelper extends SQLiteOpenHelper {
+
     public static final int VERSION = 1;
 
 
