@@ -16,8 +16,7 @@ public class DatabaseSQLiteHelper extends SQLiteOpenHelper {
 
     public static final int VERSION = 1;
 
-
-    public static final String CREATE_TABLE_CHAPITRE_TEMPLATE=
+    public static final String CREATE_TABLE_CHAPITRE_TEMPLATE =
             "CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT," +
                     " %s TEXT NOT NULL, %s TEXT NOT NULL);";
     public static final String CREATE_TABLE_CHAPITRE =
@@ -31,16 +30,21 @@ public class DatabaseSQLiteHelper extends SQLiteOpenHelper {
                                 @Nullable String name,
                                 @Nullable SQLiteDatabase.CursorFactory factory,
                                 int version) {
-        super(context, name, factory, version);
+        super(context,
+                name,
+                factory,
+                version);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
+        sqLiteDatabase.execSQL(CREATE_TABLE_CHAPITRE);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase,
+                          int previousVersion,
+                          int currentVersion) {
+        sqLiteDatabase.execSQL(CREATE_TABLE_CHAPITRE);
     }
 }
